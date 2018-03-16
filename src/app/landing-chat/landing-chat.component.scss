@@ -1,0 +1,92 @@
+.container {
+    display: grid;
+    grid-template-columns: 50% auto;
+}
+.send-message-btn {
+    border: 2px;
+    // padding:.5em 2em;
+    background:rgba(24, 180, 45, 0.804);
+    color:rgb(0, 0, 0);
+    // margin-bottom:1em;
+    height: 36px;
+    right: 0px;
+    width: 15%;   
+    position: absolute;
+    border-radius: 3px;
+}
+.register-email-btn {
+    border: 2px;
+    padding:.5em 2em;
+    background:rgba(24, 180, 45, 0.804);
+    color:rgb(0, 0, 0);
+    // // margin-bottom:1em;
+    // height: 36px;
+    left: 500px;
+    // width: 15%;   
+    position: absolute;
+    border-radius: 3px;
+}
+.chat-containers {
+    background:rgba(255, 187, 212, 0.329);
+    padding:.5em;
+    margin: 15px;
+    width: 100%
+}
+.chat-container {
+    background:rgba(0, 187, 212, 0.329);
+    padding:.5em;
+    // font-weight:bold;
+    // cursor:pointer;
+    margin: 15px;
+    // border-radius: 15px; 
+    border: 1px solid rgba(0,188,212,0.404); 
+    width: 500px
+}
+.chat-landing {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 187, 212, 0.404);
+    overflow-y: scroll; 
+    height: 250px;
+}
+.message-content {
+    // padding:1em 3em;    
+    // height: 70%;
+    width: 80%;   
+    // position: relative; 
+}
+.user-name {
+    // padding:1em 3em;    
+    // height: 50%;
+    // width: 8%;    
+    margin: 1px;
+    position: absolute;
+}
+.user-email {
+    // padding:1em 3em;    
+    left: 250px;
+    width: 8%;    
+    position: absolute;
+}
+.messages-container {
+    padding: .4em 1.3em;
+    height: 60px;
+    right: 15px;
+}
+.new-message {
+    background: rgb(255, 255, 255);
+    margin: 1px;
+    overflow: hidden;
+    // padding:.5em;  
+}
+.new-mess-div {
+    top: 30px;
+    position: relative  
+}
+.select-status {
+    width: 45%;
+    float: left;
+}
+.question-content {
+    width: 55%;
+    float: left;
+}

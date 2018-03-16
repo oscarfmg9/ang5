@@ -1,0 +1,65 @@
+<!-- Chat Placement -->
+<div class="chat-containers">
+  <div class="chat-container" id="chat-container">
+    <div class = "chat-landing" id="chat-landing">
+      <div class = "new-message" *ngFor="let book of chatMessagesObservable | async">
+        <div>
+          <strong class="name" title="userName" >{{book.name}}</strong>
+          <em>{{ book.timestamp | date : 'dd/MM/yyyy hh.mm.ss.a'}}</em>:
+        </div>
+        <div>
+          <div>{{ book.message }}</div>
+        </div>
+      </div>
+    </div>
+    <div id='messages-container' class='messages-container'>
+        <input class="user-email" type="hidden" id="user-email" name="user-email" value="test@gmail.com">    
+        <p class="user-name" id="user-name" value="UserName">UserName</p>
+      <div class="new-mess-div">  
+      <textarea class='message-content' type="text" id="message-content" name="input-message" placeholder="Type your message here..." maxlength="140" (keydown.enter)="validateMessage();false"></textarea> 
+      <button class='send-message-btn' type='button' id='send-message' (click)= "validateMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- user list -->
+  <div class="chat-container" id="chat-container">
+    <div class = "chat-landing" id="chat-landing">
+      <div class = "new-message" *ngFor="let book of viwersObservable | async">
+        <div [ngSwitch]="book.status">
+          <div class="question-content" *ngSwitchCase="'Banned'">
+            <strong class="name" title="userName" style="background: rgb(255, 2, 2); color: rgb(255,255,255)">{{book.name}}</strong>
+          </div>
+          <div class="question-content" *ngSwitchCase="'Default'">
+            <strong class="name" title="userName">{{book.name}}</strong>
+          </div>
+        </div>
+
+        <div class="select-status">
+          <button class='' value = "ban" type='button' id='{{ book.userId }}' (click)= "sendStatus($event)">Ban</button>
+          <button class='' value = "uba" type='button' id='{{ book.userId }}' (click)= "sendStatus($event)">UnBan</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id='create-chat' class='col'>
+  <input type="text" id="landingChatRoom-input-room-name" name="name-room-chat" value="Chat Rooms">
+  <input type="submit" class = "btn" id="delete-room" name="create-room-btn" value="Create Chat" (click)= "createRoom()">
+  <input type="submit" class = "btn" id="create-room" name="create-room-btn" value="Delete Chat" (click)= "deleteRoom()">
+</div>
+
+<div>
+  <!-- <div>
+    Logged in as <span id="user-name">.</span>
+    User ID <span id="user-id">.</span>
+    <a href="javascript:logout();">Logout</a>
+    <a href="javascript:login();">Login</a>
+  </div> -->
+  <div>
+    <input class="user-name" type="text" id="user-name" name="user-name" value="">  
+    <button class='register-email-btn' type='button' id='register-email' (click)= "createUser()">Register</button>  
+  </div>    
+</div>

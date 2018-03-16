@@ -1,0 +1,54 @@
+<input class="user-email" type="" id="user-email" name="user-email" value="test@gmail.com">  
+<p class="user-name" id="user-name" value="UserName">UserName</p>
+
+<!-- <div class="quiz-container">
+  <div class="quiz-landing">
+    <div class = "new-question" *ngFor="let question of seenQuestionObesr | async">
+      <div>
+        <strong class="status" >{{question.status}}</strong>
+        <em>{{question.timestamp | date : 'dd/MM/yyyy hh.mm.ss.a'}}</em>:
+      </div>
+      <div>
+          <div class="question" >{{ question.question }}</div>
+      </div>
+    </div> 
+  </div>
+</div> -->
+
+<div class="quiz-container">
+    <div class="quiz-landing">
+      <div class = "new-question" *ngFor="let question of streamerQuestionObeservable | async" id = "question{{ question.questionId }}">
+        <div class="question-content">
+          <input class="question-id" type="hidden" id="{{ question.questionId }}" name="question-id" value="{{ question.questionId }}">  
+          <strong class="status" >{{question.name}}</strong>
+          <em id="timestamp">{{question.timestamp | date : 'dd/MM/yyyy hh.mm.ss.a'}}</em>:
+          <div class="question" >{{ question.question }}</div>
+        </div>
+        <div class="select-status">
+          <button class='' value = "del" type='button' id='{{ question.questionId }}' (click)= "sendStatus($event)">Del</button>
+          <button class='' value = "ans" type='button' id='{{ question.questionId }}' (click)= "sendStatus($event)">Answer</button>
+          <button class='' value = "ban" type='button' id='{{ question.questionId }}' (click)= "sendStatus($event)">Ban</button>
+          <button class='' value = "uba" type='button' id='{{ question.questionId }}' (click)= "sendStatus($event)">UnBan</button>
+        </div> 
+      </div> 
+    </div>
+  </div>
+
+  <div class="quiz-container">
+    <div class="quiz-landing">
+      <div class = "new-question" *ngFor="let question of userQuestionObeservable | async">
+        <div>
+          <strong class="status" >{{question.status}}</strong>
+          <em>{{question.timestamp | date : 'dd/MM/yyyy hh.mm.ss.a'}}</em>:
+        </div>
+        <div>
+            <div class="question" >{{ question.question }}</div>
+        </div>
+      </div> 
+    </div>
+    <div class="new-ques-div">  
+      <textarea class='text-content' type="text" id="text-content-question" name="input-text"  placeholder="Type your question here..." maxlength="140" (keydown.enter)="sendQuestion();false"></textarea> 
+      <button class='send-message-btn' type='button' id='send-text' (click)= "sendQuestion()">Send</button>
+    </div>
+  </div>
+
